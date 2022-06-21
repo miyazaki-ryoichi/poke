@@ -6,7 +6,7 @@
 
 #item video {
     position: absolute;
-    left: 20; 
-    top: 10; 
+    left: 20px; 
+    top: 10px; 
     z-index: 100;
 }
