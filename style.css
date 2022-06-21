@@ -1,11 +1,5 @@
-video#video{
-    position: absolute;
-    left: 1000px;
-    top:   80px;
-}
-
 .video_wrapper {
     position: absolute;
-    left: 1000px;
+    left: 500px;
     top:   80px;
 }
