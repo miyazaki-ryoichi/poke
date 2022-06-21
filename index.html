@@ -91,8 +91,21 @@
         const prediction = await model.predict(canvas);
         
         //predictionの数値によって結果を変える
-        if ( prediction[0].probability.toFixed(2)> 0.0) {
-            labelContainer.innerHTML = "まだまだ";
+        if ( prediction[0].probability.toFixed(2)> 0.8) {
+            const text = 'ブラッキー'
+            labelContainer.innerHTML = text;
+
+            // ブラウザにWeb Speech API Speech Synthesis機能があるか判定
+            if ('speechSynthesis' in window) {
+                // 発言を設定
+                const uttr = new SpeechSynthesisUtterance()
+                uttr.text = text
+                // 発言を再生
+                window.speechSynthesis.speak(uttr)
+            }
+            else {
+                alert('大変申し訳ありません。このブラウザは音声合成に対応していません。')
+            }
         }
 
         if ( prediction[0].probability.toFixed(2)> 0.1) {
@@ -114,23 +127,6 @@
             const classPrediction =
                 prediction[i].className + ": " + prediction[i].probability.toFixed(2);
             labelContainer.childNodes[i].innerHTML = classPrediction;
-        }
-
-        // テキストを取得
-        //const text = document.getElementById("text").value
-        const text = 'イーブイ'
-
-        // ブラウザにWeb Speech API Speech Synthesis機能があるか判定
-        if ('speechSynthesis' in window) {
-            // 発言を設定
-            const uttr = new SpeechSynthesisUtterance()
-            uttr.text = text
-            // 発言を再生
-            window.speechSynthesis.speak(uttr)
-
-        }
-        else {
-            alert('大変申し訳ありません。このブラウザは音声合成に対応していません。')
         }
     }
 </script>
