@@ -4,7 +4,7 @@
     padding: 20px
 }
 
-.video-wrap {
+#video {
     position: absolute;
     left: 100px; 
     top: 20px; 
