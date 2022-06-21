@@ -3,8 +3,13 @@
     position: relative;
     padding: 20px
 }
-
-#video {
+#img2 {
+    position: absolute;
+    left: 300px; 
+    top: 80px; 
+    z-index: 100;
+}
+#Video2 {
     position: absolute;
     left: 200px; 
     top: 50px; 

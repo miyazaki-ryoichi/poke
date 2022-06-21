@@ -2,7 +2,8 @@
 <div>Teachable Machine Image Model</div>
 <div class="item">
     <img id="img" src="fig.png", width="480", height="360">
-    <video id="video" autoplay playsinline width="150px"></video>
+    <img id="img2" src="000051.jpg", width="100", height="100">
+    <video id="Video2" autoplay playsinline width="150px"></video>
     <!-- <video id="video" autoplay playsinline width="20px" height="20px"></video>-->
 </div>
 <button type="button" onclick="init()">Start</button>
@@ -27,7 +28,7 @@
 
     //DOMに要素追加
     //カメラ映像を出すvideoタグを取得する
-    const video = document.getElementById("video");
+    const video = document.getElementById("Video2");
     //設定したカメラのセッティングで起動する変数promiseを設定
     const promise = navigator.mediaDevices.getUserMedia(medias);
 
