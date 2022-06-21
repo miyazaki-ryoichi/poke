@@ -1,10 +1,4 @@
-video#video{
-    position: absolute;
-    left: 10px;
-    top:   80px;
-}
-
-.video_wrapper {
+.cam {
     position: absolute;
     left: 200px;
     top:   80px;
