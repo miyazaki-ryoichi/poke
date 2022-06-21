@@ -1,16 +1,10 @@
-.item{
+#item{
     /* 親要素は relative に */
     position: relative;
     padding: 20px
 }
-#img {
-    position: absolute;
-    left: 0; 
-    top: 0; 
-    z-index: 0;
-}
 
-#video {
+#item video {
     position: absolute;
     left: 20; 
     top: 10; 
