@@ -1,7 +1,6 @@
 #video {
-    left: 0; /* ADD */
-    margin: 0;
-    position: fixed;
-    top: 0; /* ADD */
+    position: absolute;
+    left: 500; /* ADD */
+    top: 500; /* ADD */
     z-index: 100;
 }
