@@ -3,5 +3,5 @@
     margin: 0;
     position: fixed;
     top: 0; /* ADD */
-    z-index: -100;
+    z-index: 100;
 }
