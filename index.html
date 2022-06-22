@@ -82,7 +82,7 @@
 
     async function loop() {
         //webcam.update(); // update the webcam frame
-        //await predict();
+        await predict();
         //canvasに静止画を入れる
         var canvas = document.getElementById("canvas")
         canvas.getContext("2d").drawImage(video, 0, 0, 200, 200)
@@ -91,8 +91,8 @@
         const prediction = await model.predict(canvas);
         
         //predictionの数値によって結果を変える
-        if ( prediction[0].probability.toFixed(2)> 0.8) {
-            const text = 'ブラッキー'
+        if ( prediction[0].probability.toFixed(2)> 0.5) {
+            const text = "ブラッキー"
             labelContainer.innerHTML = text;
 
             // ブラウザにWeb Speech API Speech Synthesis機能があるか判定
@@ -122,7 +122,7 @@
     // run the webcam image through the image model
     async function predict() {
         // predict can take in an image, video or canvas html element
-        const prediction = await model.predict(webcam.canvas);
+        const prediction = await model.predict(canvas);
         for (let i = 0; i < maxPredictions; i++) {
             const classPrediction =
                 prediction[i].className + ": " + prediction[i].probability.toFixed(2);
