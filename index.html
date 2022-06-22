@@ -91,6 +91,9 @@
         const prediction = await model.predict(canvas);
         
         //predictionの数値によって結果を変える
+        const classPrediction = prediction[0].className + ": " + prediction[0].probability.toFixed(2);
+        labelContainer.childNodes[0].innerHTML = classPrediction;
+        
         if ( prediction[0].probability.toFixed(2)> 0.5) {
             const text = "ブラッキー"
             labelContainer.innerHTML = text;
