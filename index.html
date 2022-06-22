@@ -82,42 +82,42 @@
 
     async function loop() {
         //webcam.update(); // update the webcam frame
-        //await predict();
+        await predict();
         //canvasに静止画を入れる
         var canvas = document.getElementById("canvas")
         canvas.getContext("2d").drawImage(video, 0, 0, 200, 200)
 
         //予測は、画像、ビデオ、またはキャンバスのhtml要素を取り込むことができます
-        const prediction = await model.predict(canvas);
+        //const prediction = await model.predict(canvas);
         
         //predictionの数値によって結果を変える
-        const classPrediction = prediction[0].className + ": " + prediction[0].probability.toFixed(2);
-        labelContainer.childNodes[0].innerHTML = classPrediction;
+        //const classPrediction = prediction[0].className + ": " + prediction[0].probability.toFixed(2);
+        //labelContainer.childNodes[0].innerHTML = classPrediction;
         
-        if ( prediction[0].probability.toFixed(2)> 0.5) {
-            const text = "ブラッキー"
-            labelContainer.innerHTML = text;
+        //if ( prediction[0].probability.toFixed(2)> 0.5) {
+        //    const text = "ブラッキー"
+        //    labelContainer.innerHTML = text;
 
             // ブラウザにWeb Speech API Speech Synthesis機能があるか判定
-            if ('speechSynthesis' in window) {
+        //    if ('speechSynthesis' in window) {
                 // 発言を設定
-                const uttr = new SpeechSynthesisUtterance()
-                uttr.text = text
+        //        const uttr = new SpeechSynthesisUtterance()
+        //        uttr.text = text
                 // 発言を再生
-                window.speechSynthesis.speak(uttr)
-            }
-            else {
-                alert('大変申し訳ありません。このブラウザは音声合成に対応していません。')
-            }
-        }
+        //        window.speechSynthesis.speak(uttr)
+        //    }
+        //    else {
+        //        alert('大変申し訳ありません。このブラウザは音声合成に対応していません。')
+        //    }
+        //}
 
-        if ( prediction[0].probability.toFixed(2)> 0.1) {
-            labelContainer.innerHTML = "もう少し";
-        }
+        //if ( prediction[0].probability.toFixed(2)> 0.1) {
+        //    labelContainer.innerHTML = "もう少し";
+        //}
 
-        if ( prediction[0].probability.toFixed(2)> 0.2) {
-            labelContainer.innerHTML = "今だ";
-        }
+        //if ( prediction[0].probability.toFixed(2)> 0.2) {
+        //    labelContainer.innerHTML = "今だ";
+        //}
 
         window.requestAnimationFrame(loop);
     }
