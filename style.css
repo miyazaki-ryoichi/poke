@@ -17,8 +17,5 @@
 }
 
 #canvas {
-    position: absolute;
-    left: 200px; 
-    top: 50px; 
-    z-index: 50;
+    display: none !important;
 }
