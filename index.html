@@ -10,6 +10,7 @@
 <div id="webcam-container"></div>
 <!-- <div><canvas id="canvas" width="200px" height="200px"></canvas></div> -->
 <div id="label-container"></div>
+<div id="result">結果</div>
 
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
@@ -69,7 +70,7 @@
         //webcam = new tmImage.Webcam(200, 200, flip); // width, height, flip
         //await webcam.setup(); // request access to the webcam
         //await webcam.play();
-        labelContainer = document.getElementById("label-container");
+        //labelContainer = document.getElementById("label-container");
         window.requestAnimationFrame(loop);
 
         // append elements to the DOM
@@ -78,6 +79,8 @@
         for (let i = 0; i < maxPredictions; i++) { // and class labels
             labelContainer.appendChild(document.createElement("div"));
         }
+
+        resultContainer = document.getElementById("result");
     }
 
     async function loop() {
@@ -87,9 +90,10 @@
         var canvas = document.getElementById("canvas")
         canvas.getContext("2d").drawImage(video, 0, 0, 200, 200)
 
-        
+
         //予測は、画像、ビデオ、またはキャンバスのhtml要素を取り込むことができます
         const prediction = await model.predict(canvas);
+        //const prediction = await model.predict("pika.jpeg");
         
         for (let i = 0; i < maxPredictions; i++) {
             const classPrediction =
@@ -101,23 +105,55 @@
         //predictionの数値によって結果を変える
         //const classPrediction = prediction[0].className + ": " + prediction[0].probability.toFixed(2);
         //labelContainer.childNodes[0].innerHTML = classPrediction;
-        
-        //if ( prediction[0].probability.toFixed(2)> 0.5) {
-        //    const text = "ブラッキー"
-        //    labelContainer.innerHTML = text;
 
-            // ブラウザにWeb Speech API Speech Synthesis機能があるか判定
-        //    if ('speechSynthesis' in window) {
-                // 発言を設定
-        //        const uttr = new SpeechSynthesisUtterance()
-        //        uttr.text = text
-                // 発言を再生
-        //        window.speechSynthesis.speak(uttr)
-        //    }
-        //    else {
-        //        alert('大変申し訳ありません。このブラウザは音声合成に対応していません。')
-        //    }
-        //}
+
+
+        let text = "ブラッキー"
+        if ( prediction[0].probability.toFixed(2) > 0.9) {
+            text = "ブラッキー"
+        }
+        else if ( prediction[1].probability.toFixed(2) > 0.9) {
+            text = "エーフィ"
+        }
+        else if ( prediction[2].probability.toFixed(2) > 0.9) {
+            text = "ニンフィア"
+        }
+        else if ( prediction[3].probability.toFixed(2) > 0.9) {
+            text = "イーブイ"
+        }
+        else if ( prediction[5].probability.toFixed(2) > 0.9) {
+            text = "サンダース"
+        }
+        else if ( prediction[6].probability.toFixed(2) > 0.9) {
+            text = "シャワーズ"
+        }
+        else if ( prediction[7].probability.toFixed(2) > 0.9) {
+            text = "ブースター"
+        }
+        else if ( prediction[8].probability.toFixed(2) > 0.9) {
+            text = "リーフィア"
+        }
+        else if ( prediction[9].probability.toFixed(2) > 0.9) {
+            text = "グレイシア"
+        }
+        else if ( prediction[10].probability.toFixed(2) > 0.9) {
+            text = "ピカチュウ"
+        }
+
+        resultContainer.innerHTML = text;
+
+        // ブラウザにWeb Speech API Speech Synthesis機能があるか判定
+        if ('speechSynthesis' in window) {
+            // 発言を設定
+            const uttr = new SpeechSynthesisUtterance()
+            uttr.text = text
+            SpeechSynthesisUtterance.lang = 'ja'
+            // 発言を再生
+            window.speechSynthesis.speak(uttr)
+        }
+        else {
+            alert('大変申し訳ありません。このブラウザは音声合成に対応していません。')
+        }
 
         //if ( prediction[0].probability.toFixed(2)> 0.1) {
         //    labelContainer.innerHTML = "もう少し";
