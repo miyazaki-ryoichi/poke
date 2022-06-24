@@ -108,35 +108,34 @@
         //labelContainer.childNodes[0].innerHTML = classPrediction;
         
         if ( prediction[0].probability.toFixed(2) > 0.7) {
-            text = "ブラッキー"
-            //speakSwitch()
+            text = "ブラッキー．げっこうポケモン．あくタイプ．月の光がイーブイの遺伝子を変化させた．闇に潜み獲物を待つ．"
         }
         else if ( prediction[1].probability.toFixed(2) > 0.7) {
-            text = "エーフィ"
+            text = "エーフィ．たいようポケモン．エスパータイプ．体毛はビロードのつやと肌触り．サイコパワーを使う時，額の玉が輝く．"
         }
         else if ( prediction[2].probability.toFixed(2) > 0.7) {
-            text = "ニンフィア"
+            text = "ニンフィア．結びつきポケモン．フェアリータイプ．リボンのような触覚から，敵意を消す波動を発して，争いをやめさせる．"
         }
         else if ( prediction[3].probability.toFixed(2) > 0.7) {
-            text = "イーブイ"
+            text = "イーブイ．進化ポケモン．ノーマルタイプ．進化のとき，姿と能力が変わることで，厳しい環境に対応する珍しいポケモン．"
         }
         else if ( prediction[5].probability.toFixed(2) > 0.7) {
-            text = "サンダース"
+            text = "サンダース．かみなりポケモン．電気タイプ．１万ボルトの電気を操る．全身の体毛が逆立つと，針のように鋭くとがる．"
         }
         else if ( prediction[6].probability.toFixed(2) > 0.7) {
-            text = "シャワーズ"
+            text = "シャワーズ．泡吐きポケモン．水タイプ．水中での生活に適した体に進化した，水に溶けると見えなくなる．"
         }
         else if ( prediction[7].probability.toFixed(2) > 0.7) {
-            text = "ブースター"
+            text = "ブースター．炎ポケモン，ほのおタイプ．体内に炎袋を持つ．戦いが始まる直前には体温が９００度まで上がる．"
         }
         else if ( prediction[8].probability.toFixed(2) > 0.7) {
-            text = "リーフィア"
+            text = "リーフィア．新緑ポケモン．草タイプ．植物のように光合成をするため，リーフィアの周りは澄んだ空気に包まれている．"
         }
         else if ( prediction[9].probability.toFixed(2) > 0.7) {
-            text = "グレイシア"
+            text = "グレイシア．新雪ポケモン．こおりタイプ．全身の体毛を凍らせて針のように鋭く尖らせる．敵から見を守る手段．"
         }
         else if ( prediction[10].probability.toFixed(2) > 0.7) {
-            text = "ピカチュウ"
+            text = "ピカチュウ．ねずみポケモン．電気タイプ．森の中で仲間と暮らす．ほっぺたの両側にある電気袋に電気を貯める．"
         }
 
         resultContainer.innerHTML = text;
